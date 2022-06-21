@@ -1,4 +1,4 @@
-### Olá, eu sou o Pedro Gazola, cursando ciências da computação.
+### Olá, eu sou o Eu, não to cursando ciências da computação.
 
 <!--
 **JPBM135/JPBM135** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
