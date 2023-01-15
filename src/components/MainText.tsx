@@ -35,7 +35,7 @@ export default function MainText() {
 			</div>
 			<div className="flex flex-col justify-center items-center pt-7" id="social-icons">
 				<div className="flex flex-row justify-center items-center space-x-6" id="social-icons">
-					<a href="https://gibhub.com/JPBM135">
+					<a href="https://github.com/JPBM135">
 						<Image
 							alt="Github Icon"
 							className="rounded-lg block mx-auto shadow-current"
