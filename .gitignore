@@ -132,3 +132,6 @@ dist
 # macOS
 .DS_Store
 .vercel
+
+# certs
+selfsigned.*
