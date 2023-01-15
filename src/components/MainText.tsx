@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { SOCIAL_ICON_SIZE } from '@/constants';
-import styles from '@/styles/MainText.module.css';
 
 export default function MainText() {
 	return (
@@ -23,7 +22,6 @@ export default function MainText() {
 					<span className="text-zinc-200 hover:text-teal-700">5</span>
 				</div>
 				<div className="pt-2 text-3xl font-bold">
-					<span className={styles['red-background']}>TEST</span>
 					<span className="text-zinc-200 hover:text-teal-800">D</span>
 					<span className="text-zinc-200 hover:text-teal-800">e</span>
 					<span className="text-zinc-200 hover:text-teal-700">v</span>
