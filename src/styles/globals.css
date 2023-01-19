@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.svg-social-icons {
+	color: white;
+}
+
+.svg-social-icons:hover {
+	color: rgb(100 116 139);
+}
