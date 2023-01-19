@@ -1,1 +1,1 @@
-export const SOCIAL_ICON_SIZE = '35';
+export const SOCIAL_ICON_SIZE = '50';
