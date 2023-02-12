@@ -7,7 +7,7 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"prod": "env-cmd node server.mjs"
+		"prod": "sudo env-cmd node server.mjs"
 	},
 	"dependencies": {
 		"@next/font": "13.1.2",
