@@ -1,4 +1,4 @@
-### Olá, eu sou o Eu, não to cursando ciências da computação.
+### Olá, eu sou o Eu, to cursando ciências da computação.
 
 <!--
 **JPBM135/JPBM135** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
@@ -37,4 +37,5 @@ end
   <img align="center"  height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg">
   <img align="center"  height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">
   <img align="center"  height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-plain.svg">
-  </div>
+  <img align="center"  height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg">
+</div>
