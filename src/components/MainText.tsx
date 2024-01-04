@@ -38,13 +38,13 @@ export default function MainText() {
 			</div>
 			<div className="flex flex-col justify-center items-center pt-5" id="social-icons">
 				<div className="flex flex-row justify-center items-center space-x-6" id="social-icons">
-					<a href="https://github.com/JPBM135" rel="noreferrer" target="_blank">
+					<a aria-label='My personal Github' href="https://github.com/JPBM135" rel="noreferrer" target="_blank">
 						<GithubLogo className="svg-social-icons" size={SOCIAL_ICON_SIZE} width="bold" />
 					</a>
-					<a className="" href="https://www.linkedin.com/in/jpbm135/" rel="noreferrer" target="_blank">
+					<a aria-label='My personal Linkedin' className="" href="https://www.linkedin.com/in/jpbm135/" rel="noreferrer" target="_blank">
 						<LinkedinLogo className="svg-social-icons" size={HIGHLIGHTED_SOCIAL_ICON_SIZE} width="bold" />
 					</a>
-					<a href="mailto:contact@jpbm.dev" rel="noreferrer" target="_blank">
+					<a aria-label='My personal Email' href="mailto:contact@jpbm.dev" rel="noreferrer" target="_blank">
 						<Envelope className="svg-social-icons" size={SOCIAL_ICON_SIZE} width="bold" />
 					</a>
 				</div>
