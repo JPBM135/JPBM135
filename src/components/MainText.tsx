@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { GithubLogo, Envelope, TwitterLogo } from 'phosphor-react';
+import { GithubLogo, Envelope, LinkedinLogo } from 'phosphor-react';
 import { SOCIAL_ICON_SIZE } from '@/constants';
 
 function changeColorToTeal(evt: React.MouseEvent) {
@@ -8,6 +8,8 @@ function changeColorToTeal(evt: React.MouseEvent) {
 }
 
 export default function MainText() {
+	const HIGHLIGHTED_SOCIAL_ICON_SIZE = Number(SOCIAL_ICON_SIZE) * 1.3
+
 	return (
 		<div className="relative flex min-h-screen flex-col justify-center">
 			<Image
@@ -44,8 +46,8 @@ export default function MainText() {
 					<a href="https://github.com/JPBM135" rel="noreferrer" target="_blank">
 						<GithubLogo className="svg-social-icons" size={SOCIAL_ICON_SIZE} width="bold" />
 					</a>
-					<a href="https://twitter.com/JPBM135" rel="noreferrer" target="_blank">
-						<TwitterLogo className="svg-social-icons" size={SOCIAL_ICON_SIZE} width="bold" />
+					<a className="" href="https://www.linkedin.com/in/jpbm135/" rel="noreferrer" target="_blank">
+						<LinkedinLogo className="svg-social-icons" size={HIGHLIGHTED_SOCIAL_ICON_SIZE} width="bold" />
 					</a>
 					<a href="mailto:jpedrobm0@gmail.com" rel="noreferrer" target="_blank">
 						<Envelope className="svg-social-icons" size={SOCIAL_ICON_SIZE} width="bold" />
