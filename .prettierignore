@@ -1,5 +1,5 @@
 .yarn/
-dist/
+dist/**
 node_modules/
-locales/
-!locales/en-US/
+.esbuild/**/*
+user-theme.scss

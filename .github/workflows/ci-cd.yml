@@ -1,0 +1,38 @@
+name: Continuous integration/deployment
+
+on:
+  push:
+    branches:
+      - '**'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  client:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout JPBM135
+        uses: actions/checkout@v3
+        with:
+          path: ./jpbm135
+
+      - name: Set up node
+        uses: actions/setup-node@v3
+        with:
+          cache: 'yarn'
+          cache-dependency-path: ./jpbm135/yarn.lock
+          node-version-file: ./jpbm135/.nvmrc
+
+      - name: Install dependencies
+        working-directory: ./jpbm135
+        run: yarn --immutable
+
+      - name: Lint client
+        working-directory: ./jpbm135
+        run: yarn lint
+
+      - name: Build client
+        working-directory: ./jpbm135
+        run: yarn build

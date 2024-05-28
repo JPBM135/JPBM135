@@ -1,0 +1,33 @@
+<div
+  class="w-full px-6 py-3 flex justify-between items-center bg-white border-0 border-b border-solid border-neutrals-border-default"
+>
+  <div class="flex items-center h-full gap-6">
+    <div class="flex gap-6">
+      @for (header of headers; track header.labelKey) {
+        <div class="flex items-center gap-2">
+          <mat-icon
+            [ngClass]="{
+              'text-info-icon-default': header.link === '/',
+              'text-new-gray-200': header.link !== '/'
+            }"
+            class="scale-75"
+            >{{ header.icon }}</mat-icon
+          >
+          <a [routerLink]="header.link" class="text-new-gray-800 text-base font-medium">{{
+            header.labelKey | translate
+          }}</a>
+        </div>
+      }
+    </div>
+    <div class="bg-new-gray-200 h-5 w-px"></div>
+
+    <button
+      type="button"
+      class="flex items-center justify-between w-full text-new-gray-800 text-xs font-medium py-2"
+      (click)="changeLanguage()"
+    >
+      {{ 'HEADER.MENU.LANGUAGE' | translate }}
+      <mat-icon class="text-new-gray-800 scale-75">language</mat-icon>
+    </button>
+  </div>
+</div>

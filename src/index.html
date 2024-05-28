@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>JPBM135</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body class="mat-typography">
+    <noscript>
+      <div
+        class="absolute top-0 left-0 h-screen w-screen z-50 bg-blue-800 flex justify-center items-center drop-shadow-md"
+      >
+        <div class="flex flex-col items-center rounded-md p-6 w-[30vw] h-[40vh] justify-between">
+          <div
+            class="flex justify-center items-center w-full border-b border-new-gray-200 pb-3 px-5"
+          >
+            <img
+              src="assets/images/logo/logo-azul.svg"
+              class="rounded"
+              height="40"
+              width="40"
+              alt="Logo"
+            />
+          </div>
+          <div class="flex flex-col items-center gap-5">
+            <div class="text-red-400 text-3xl font-cursive text-center font-semibold">
+              Ops! Encontramos um problema!
+            </div>
+            <div class="text-center">
+              Para que essa aplicação funcione corretamente é necessário
+              <span class="font-semibold">habilitar javascript</span> no seu navegador.
+            </div>
+          </div>
+        </div>
+      </div>
+    </noscript>
+
+    <div
+      class="absolute top-0 left-0 top-1/ w-full h-full flex items-center justify-center bg-white"
+      id="splash-screen"
+    >
+      <style>
+        .pulse {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          max-width: 120px;
+          max-height: 120px;
+          border-radius: 50%;
+          background-color: #d4def1;
+        }
+
+        .pulse span {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background-color: #d4def1;
+          animation: pulse 4s ease-out infinite;
+          animation-delay: calc(1s * var(--i));
+        }
+
+        @keyframes pulse {
+          100% {
+            transform: scale(2);
+            opacity: 0;
+          }
+        }
+      </style>
+      <!-- <div class="absolute top-0 left-0 w-40 h-40 rounded-full bg-blue-700 ping"></div>
+
+        <div class="flex justify-center items-center text-blue-500">
+          <span class="material-symbols-outlined scale-[3]"> school </span>
+        </div> -->
+      <div class="pulse">
+        <span style="--i: 0"></span>
+        <span style="--i: 1"></span>
+        <span style="--i: 2"></span>
+        <span style="--i: 3"></span>
+      </div>
+      <div class="flex justify-center items-center text-blue-500 absolute scale-[2]">
+        <span class="material-symbols-outlined"> school</span>
+      </div>
+    </div>
+    <app-root></app-root>
+  </body>
+</html>

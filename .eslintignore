@@ -1,4 +1,4 @@
 .yarn/
-dist/
 node_modules/
-tailwind.config.js
+.git/
+dist/

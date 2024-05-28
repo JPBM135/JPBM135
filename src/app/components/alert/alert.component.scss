@@ -1,0 +1,12 @@
+.alert-entering {
+  animation: heightUp 300ms;
+}
+
+@keyframes heightUp {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 64px;
+  }
+}
