@@ -3,19 +3,16 @@
   "env": {
     "es6": true
   },
+  "ignorePatterns": [".yarn/**/*", "node_modules/**/*", "dist/**/*", ".git/**/*"],
   "parserOptions": {
-    "ecmaVersion": 2018,
+    "ecmaVersion": 2023,
     "project": "./tsconfig.eslint.json"
   },
   "overrides": [
     {
-      "files": [
-        "*.ts"
-      ],
+      "files": ["*.ts"],
       "parserOptions": {
-        "project": [
-          "tsconfig.json"
-        ],
+        "project": ["tsconfig.json"],
         "createDefaultProgram": true
       },
       "extends": [
@@ -39,10 +36,7 @@
             "message": "Importar o @apollo/client vai gerar erros, use o @apollo/client/core"
           }
         ],
-        "@typescript-eslint/consistent-type-definitions": [
-          "error",
-          "interface"
-        ],
+        "@typescript-eslint/consistent-type-definitions": ["error", "interface"],
         "rxjs/no-implicit-any-catch": "off",
         "@typescript-eslint/no-unused-vars": "error",
         "no-restricted-globals": "off",
@@ -50,13 +44,9 @@
       }
     },
     {
-      "files": [
-        "*.html"
-      ],
+      "files": ["*.html"],
       "parser": "@angular-eslint/template-parser",
-      "plugins": [
-        "@angular-eslint/template"
-      ],
+      "plugins": ["@angular-eslint/template"],
       "extends": [
         "plugin:@angular-eslint/template/recommended",
         "plugin:@angular-eslint/template/accessibility"
@@ -85,8 +75,5 @@
         "@angular-eslint/template/use-track-by-function": 1
       }
     }
-  ],
-  "extends": [
-    "plugin:storybook/recommended"
   ]
 }

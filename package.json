@@ -62,7 +62,7 @@
     "@typescript-eslint/parser": "7.10.0",
     "autoprefixer": "^10.4.19",
     "concurrently": "^8.2.2",
-    "eslint": "^9.3.0",
+    "eslint": "8.57.0",
     "eslint-config-neon": "0.1.62",
     "jasmine-core": "~5.1.2",
     "karma": "~6.4.3",
