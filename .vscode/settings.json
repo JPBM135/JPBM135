@@ -21,7 +21,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "typescript.preferences.importModuleSpecifier": "shortest",
-
   "i18n-ally.localesPaths": ["src/app/**/i18n", "src/app/**/**/i18n"],
   "i18n-ally.enabledFrameworks": ["i18next", "ngx-translate"],
   "i18n-ally.pathMatcher": "(?<locale>[\\w-_]+(?<!index)).(?<ext>m?js|ts)",

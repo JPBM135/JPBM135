@@ -6,94 +6,77 @@
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <link rel="icon" type="image/x-icon" href="assets/favicon.png" />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu+Sans+Mono:ital,wght@0,400..700;1,400..700&display=swap"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
   </head>
   <body class="mat-typography">
     <noscript>
       <div
-        class="absolute top-0 left-0 h-screen w-screen z-50 bg-blue-800 flex justify-center items-center drop-shadow-md"
+        class="relative flex min-h-screen flex-col justify-center bg-gradient-to-br from-background-dark via-red-500 to-background-light"
       >
-        <div class="flex flex-col items-center rounded-md p-6 w-[30vw] h-[40vh] justify-between">
-          <div
-            class="flex justify-center items-center w-full border-b border-new-gray-200 pb-3 px-5"
-          >
-            <img
-              src="assets/images/logo/logo-azul.svg"
-              class="rounded"
-              height="40"
-              width="40"
-              alt="Logo"
-            />
-          </div>
-          <div class="flex flex-col items-center gap-5">
-            <div class="text-red-400 text-3xl font-cursive text-center font-semibold">
-              Ops! Encontramos um problema!
-            </div>
-            <div class="text-center">
-              Para que essa aplicação funcione corretamente é necessário
-              <span class="font-semibold">habilitar javascript</span> no seu navegador.
-            </div>
+        <img
+          alt="Profile Pic"
+          class="rounded-lg block mx-auto"
+          height="200"
+          src="https://cdn.discordapp.com/avatars/485912377574031370/e5fd6b9374aa0faf32a7b9150759e815.png?size=1024"
+          width="200"
+        />
+        <div class="relative text-center">
+          <div class="pt-7 text-5xl font-bold text-text-dark">JPBM135</div>
+          <div class="pt-2 text-3xl font-bold text-text-dark">Developer</div>
+        </div>
+        <div class="flex flex-col justify-center items-center pt-5" id="social-icons">
+          <div class="flex flex-row justify-center items-center space-x-6 gap-3" id="social-icons">
+            <a
+              aria-label="My personal Github"
+              href="https://github.com/JPBM135"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i class="block scale-[2.5] ph-bold ph-github-logo text-text-dark"></i>
+            </a>
+            <a
+              aria-label="My personal Linkedin"
+              href="https://www.linkedin.com/in/joao-borges-martins/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i class="block scale-[2.5] ph-bold ph-linkedin-logo text-text-dark"></i>
+            </a>
+            <a
+              aria-label="My personal Email"
+              href="mailto:contact@jpbm.dev"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <i class="block scale-[2.5] ph-bold ph-envelope text-text-dark"></i>
+            </a>
           </div>
         </div>
       </div>
     </noscript>
-
-    <div
-      class="absolute top-0 left-0 top-1/ w-full h-full flex items-center justify-center bg-white"
-      id="splash-screen"
-    >
-      <style>
-        .pulse {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          max-width: 120px;
-          max-height: 120px;
-          border-radius: 50%;
-          background-color: #d4def1;
-        }
-
-        .pulse span {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          background-color: #d4def1;
-          animation: pulse 4s ease-out infinite;
-          animation-delay: calc(1s * var(--i));
-        }
-
-        @keyframes pulse {
-          100% {
-            transform: scale(2);
-            opacity: 0;
-          }
-        }
-      </style>
-      <!-- <div class="absolute top-0 left-0 w-40 h-40 rounded-full bg-blue-700 ping"></div>
-
-        <div class="flex justify-center items-center text-blue-500">
-          <span class="material-symbols-outlined scale-[3]"> school </span>
-        </div> -->
-      <div class="pulse">
-        <span style="--i: 0"></span>
-        <span style="--i: 1"></span>
-        <span style="--i: 2"></span>
-        <span style="--i: 3"></span>
-      </div>
-      <div class="flex justify-center items-center text-blue-500 absolute scale-[2]">
-        <span class="material-symbols-outlined"> school</span>
-      </div>
-    </div>
     <app-root></app-root>
   </body>
 </html>

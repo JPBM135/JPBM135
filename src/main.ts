@@ -11,10 +11,7 @@ Sentry.init({
   dsn: environment.sentryDSN ?? undefined,
   integrations: [
     Sentry.browserTracingIntegration({
-      tracePropagationTargets: [
-        'localhost',
-        /.*execute-api\.sa-east-1\.amazonaws.com.*/i,
-      ],
+      tracePropagationTargets: ['localhost', /.*execute-api\.sa-east-1\.amazonaws.com.*/i],
     }),
     Sentry.replayIntegration(),
   ],
