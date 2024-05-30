@@ -6,16 +6,18 @@
       [@slideInOutAnimation]="alert.animationState()"
       [@heightGrow]
       (@slideInOutAnimation.done)="animationHandler(alert)"
-      class="relative overflow-y-hidden p-5 flex-shrink-0 gap-2 flex flex-col justify-center items-start bg-white rounded-md drop-shadow-md"
+      class="relative overflow-y-hidden p-5 flex-shrink-0 gap-2 flex flex-col justify-center items-start bg-white/50 dark:bg-gray-800/50 rounded-md drop-shadow-md"
     >
       <div class="flex gap-2 justify-center items-center">
         <mat-icon
           fontSet="material-symbols-outlined"
-          class="text-{{ themes[alert.theme()].color }}"
+          class="text-{{ themes[alert.theme()].color }} min-w-6"
         >
           {{ themes[alert.theme()].icon }}
         </mat-icon>
-        <span>{{ alert.message() }}</span>
+        <span class="text-text-light dark:text-text-dark max-sm:text-base font-mono font-medium">{{
+          alert.message()
+        }}</span>
       </div>
       @if (alert.progress() && alert.theme() !== 'success') {
         <div class="min-w-80 w-full rounded-md grid grid-cols-[1fr_auto] gap-4 items-center">
