@@ -182,3 +182,6 @@ Thumbs.db
 .nx/workspace-data
 
 *storybook.log
+
+# Certs
+selfsigned.*
