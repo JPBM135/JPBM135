@@ -7,11 +7,12 @@ function isObject(obj: unknown): obj is RecursiveRecord {
 }
 
 export function mergeDeep<T extends RecursiveRecord = RecursiveRecord>(
-  prevKey: string | RecursiveRecord,
+  prevKey: RecursiveRecord | string,
   ...objects: RecursiveRecord[]
 ): T {
   if (typeof prevKey !== 'string') {
     objects.unshift(prevKey);
+    // eslint-disable-next-line no-param-reassign
     prevKey = '';
   }
 
@@ -35,6 +36,7 @@ export function mergeDeep<T extends RecursiveRecord = RecursiveRecord>(
             newValue: oVal,
           });
         }
+
         prev[key] = oVal;
       }
     }

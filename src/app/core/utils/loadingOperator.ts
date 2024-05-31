@@ -1,5 +1,5 @@
 import type { WritableSignal } from '@angular/core';
-import { Observable, Subscriber, type UnaryFunction } from 'rxjs';
+import { type Subscriber, Observable, type UnaryFunction } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 
 export function loadingOperator<T>(
@@ -9,13 +9,13 @@ export function loadingOperator<T>(
 
   const stopLoading = () => isLoading.set(false);
 
-  const subscribeWithLoading = (source: Observable<T>, observer: Subscriber<T>) => {
-    return source.pipe(finalize(stopLoading)).subscribe(observer);
+  const subscribeWithLoading = (source$: Observable<T>, observer: Subscriber<T>) => {
+    return source$.pipe(finalize(stopLoading)).subscribe(observer);
   };
 
-  return (source: Observable<T>) =>
+  return (source$: Observable<T>) =>
     new Observable<T>((observer) => {
       startLoading();
-      return subscribeWithLoading(source, observer);
+      return subscribeWithLoading(source$, observer);
     });
 }
