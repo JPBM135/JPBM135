@@ -1,13 +1,13 @@
 export default {
   HOME_PAGE: {
-    HERO: {
-      GREETINGS: '👋 Hola, {{ name }}!',
-      TITLE: {
-        FIRST: 'Bienvenido a',
-        SECOND: 'Universidad.',
-      },
+    META: {
+      TITLE: 'João Pedro - Desarrollador de Software',
       DESCRIPTION:
-        'Una plataforma de enseñanza unificada, que contiene tanto entrenamientos del sistema como entrenamientos internos de su empresa.',
+        'Desarrollador de software con experiencia en desarrollo de back-end y front-end. Apasionado por la tecnología y siempre en busca de nuevos desafíos.',
     },
+    GREETINGS: '¡Hola!',
+    TITLE: 'Soy João Pedro',
+    DESCRIPTION:
+      'Desarrollador full stack con pasión por la tecnología y siempre en busca de nuevos desafíos.',
   },
 };

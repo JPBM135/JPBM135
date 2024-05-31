@@ -1,25 +1,13 @@
 export default {
   HOME_PAGE: {
-    TEST: 'Teste',
-    HERO: {
-      GREETINGS: '👋 Olá, {{ name }}!',
-      TITLE: {
-        FIRST: 'Seja bem-vindo(a) à',
-        SECOND: 'Universidade .',
-      },
+    META: {
+      TITLE: 'João Pedro - Desenvolvedor de Software',
       DESCRIPTION:
-        'Uma plataforma unificada de ensino, contendo desde treinamentos sobre o sistema  como também treinamentos internos de sua empresa.',
+        'Desenvolvedor de software com experiência em desenvolvimento de back-end e front-end. Apaixonado por tecnologia e sempre em busca de novos desafios.',
     },
-    COURSES: {
-      EMPTY: 'Nenhum treinamento encontrado.',
-      GLOBAL_FSM: {
-        TITLE: 'Treinamentos ',
-        EMPTY: 'Estamos preparando novos treinamentos para você!',
-      },
-      FSM: {
-        TITLE: 'Treinamento da minha empresa',
-        EMPTY: 'Sua empresa ainda não disponibilizou treinamentos!',
-      },
-    },
+    GREETINGS: 'Olá!',
+    TITLE: 'Eu sou João Pedro',
+    DESCRIPTION:
+      'Desenvolvedor full stack com paixão por tecnologia e sempre em busca de novos desafios.',
   },
 };
