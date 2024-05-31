@@ -4,11 +4,11 @@ import { Injectable } from '@angular/core';
 import type { ApolloError } from '@apollo/client/core';
 import type { ErrorResponse } from '@apollo/client/link/error';
 import { onError } from '@apollo/client/link/error';
-import { environment } from '../../../../environments/environment';
+import { TranslateService } from '@ngx-translate/core';
 import { Subject, catchError } from 'rxjs';
 import type { MonoTypeOperatorFunction } from 'rxjs';
+import { environment } from '../../../../environments/environment';
 import { AlertService } from '../alert/alert.service';
-import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
@@ -65,7 +65,7 @@ export class ErrorHandlerService {
       }
 
       return (
-        translatedErrorMessage ||
+        translatedErrorMessage ??
         this.computeDefaultErrorMessage(message ?? 'UNKNOWN', errorCodes[0])
       );
     }
