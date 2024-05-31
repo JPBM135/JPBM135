@@ -1,0 +1,62 @@
+<div
+  class="bg-gray-300/30 dark:bg-gray-800/50 rounded-lg p-2 text-text-light dark:text-text-dark shadow-lg"
+>
+  @if (discordData() && discordData()?.success && discordData()?.data) {
+    <div
+      class="flex flex-col bg-white/30 dark:bg-gray-800/50 p-5 rounded-lg shadow-md text-text-light dark:text-text-dark font-mono"
+    >
+      <div class="flex items-center gap-2 w-full justify-between">
+        <h2 class="text-2xl font-bold">
+          {{ discordData()!.data.discord_user.username }}
+          @if (discordData()!.data.discord_user.global_name) {
+            <span class="text-gray-600">({{ discordData()!.data.discord_user.global_name }})</span>
+          }
+        </h2>
+
+        <mat-icon
+          [ngClass]="{
+            'text-green-500': discordData()!.data.discord_status === 'online',
+            'text-yellow-500': discordData()!.data.discord_status === 'idle',
+            'text-red-500': discordData()!.data.discord_status === 'dnd',
+            'text-gray-500': discordData()!.data.discord_status === 'offline'
+          }"
+          [matTooltip]="'DISCORD_CARD.STATUS.' + discordData()!.data.discord_status | translate"
+          class="text-blue-600"
+          >{{ statusToIcon(discordData()!.data.discord_status) }}</mat-icon
+        >
+      </div>
+      @for (activity of discordData()?.data?.activities ?? []; track $index) {
+        <div class="flex gap-4 py-2 px-2 justify-start items-center w-full">
+          @if (activity.assets) {
+            <img
+              class="min-h-16 h-16 rounded-lg"
+              [src]="getActivityMediaUrl(activity)"
+              alt="Discord Activity"
+            />
+          }
+          <div class="flex flex-col items-start">
+            <p class="text-sm">{{ activity.name }}</p>
+            <p class="text-sm text-gray-500 truncate max-sm:max-w-48">
+              {{ activity.details }}
+            </p>
+            <div class="flex gap-2 text-sm text-gray-500">
+              @if (activity.emoji && !activity.emoji.id) {
+                {{ activity.emoji.name }}
+              } @else if (activity.emoji && activity.emoji.id) {
+                <img class="h-6 rounded" [src]="resolveEmoji(activity.emoji)" alt="Emoji" />
+              }
+              {{ activity.state }}
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  } @else if (discordData() === null) {
+    <div class="flex h-60 w-full items-center justify-center skeleton rounded-lg"></div>
+  } @else {
+    <div class="flex flex-col items-center justify-center">
+      <mat-icon class="text-6xl">error</mat-icon>
+      <p class="text-lg">Failed to fetch Discord data</p>
+    </div>
+  }
+</div>
