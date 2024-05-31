@@ -4,14 +4,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {
   PreloadAllModules,
   provideRouter,
-  withHashLocation,
   withInMemoryScrolling,
   withPreloading,
 } from '@angular/router';
 import { routes } from './app.routes';
 import { provideDateAdaptors } from './core/providers/provideDateAdaptors';
 import { provideSentry } from './core/providers/provideSentry';
-import { provideSplashScreen } from './core/providers/provideSplashScreen';
 import { provideTranslation } from './core/providers/provideTranslation';
 
 function createProviders(
@@ -30,11 +28,9 @@ export const appConfig: ApplicationConfig = {
       routes,
       withPreloading(PreloadAllModules),
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
-      withHashLocation(),
     ),
     provideDateAdaptors(),
 
-    provideSplashScreen(),
     provideTranslation(),
   ),
 };

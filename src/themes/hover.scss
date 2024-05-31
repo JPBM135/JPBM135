@@ -1,0 +1,55 @@
+.growing-hover {
+  &__base {
+    display: inline-block;
+    margin: 0;
+  }
+
+  &__base:after {
+    display: block;
+    content: '';
+    border-bottom: solid 2px #b3e5e5;
+    border-radius: 9999px;
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  &--primary {
+    &__base:after {
+      border-bottom-color: #c0392b;
+    }
+  }
+
+  &--secondary {
+    &__base:after {
+      border-bottom-color: #e74c3c;
+    }
+  }
+
+  &--dark {
+    &__base:after {
+      border-bottom-color: #34495e;
+    }
+  }
+
+  &--light {
+    &__base:after {
+      border-bottom-color: #ecf0f1;
+    }
+  }
+
+  &__base:hover:after {
+    transform: scaleX(1);
+  }
+
+  &__from-right:after {
+    transform-origin: 100% 50%;
+  }
+
+  &__from-left:after {
+    transform-origin: 0% 50%;
+  }
+
+  &__from-center:after {
+    transform-origin: 50% 50%;
+  }
+}

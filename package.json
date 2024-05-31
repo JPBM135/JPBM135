@@ -39,6 +39,7 @@
     "@sentry/angular-ivy": "7.116.0",
     "apollo-angular": "^7.0.1",
     "dayjs": "^1.11.11",
+    "discord-api-types": "^0.37.86",
     "graphql": "^16.8.1",
     "jwt-decode": "^4.0.0",
     "luxon": "^3.4.4",

@@ -35,3 +35,10 @@ $JPBM135-theme: mat.m2-define-light-theme(
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include mat.all-component-themes($JPBM135-theme);
+
+.mat-dialog-transparent {
+  .mat-mdc-dialog-surface {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+}
