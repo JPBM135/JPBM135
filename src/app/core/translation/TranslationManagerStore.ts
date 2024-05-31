@@ -1,8 +1,11 @@
 import { alertComponentTranslationManager } from '../../components/alert/i18n';
+import { discordCardTranslationManager } from '../../components/discord-card/i18n';
+import { footerTranslationManager } from '../../components/footer/i18n';
 import { headerTranslationManager } from '../../components/header/i18n';
-import { layoutTranslationManager } from '../../components/layout/i18n';
+import { konamiCardTranslationManager } from '../../components/konami-code/i18n';
 import { rootTranslationManager } from '../../i18n';
 import { homePageTranslationManager } from '../../pages/home/i18n';
+import { notFoundPageTranslationManager } from '../../pages/not-found/i18n';
 import { alertServiceTranslationManager } from '../services/alert/i18n';
 import { errorHandlerTranslationManager } from '../services/error-handler/i18n';
 import {
@@ -18,10 +21,13 @@ export class TranslationManagerStore {
     alertComponentTranslationManager,
     alertServiceTranslationManager,
     rootTranslationManager,
-    layoutTranslationManager,
     headerTranslationManager,
     homePageTranslationManager,
+    discordCardTranslationManager,
+    konamiCardTranslationManager,
+    footerTranslationManager,
     errorHandlerTranslationManager,
+    notFoundPageTranslationManager,
   ];
 
   public static getMergedLanguageMap(): TranslationLanguageMap {
