@@ -1,33 +1,150 @@
 <div
-  class="w-full px-6 py-3 flex justify-between items-center bg-white border-0 border-b border-solid border-neutrals-border-default"
+  class="w-full h-16 = flex justify-between items-center bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark border-0 border-b border-solid border-gray-200 dark:border-gray-800"
 >
-  <div class="flex items-center h-full gap-6">
-    <div class="flex gap-6">
-      @for (header of headers; track header.labelKey) {
-        <div class="flex items-center gap-2">
-          <mat-icon
-            [ngClass]="{
-              'text-info-icon-default': header.link === '/',
-              'text-new-gray-200': header.link !== '/'
-            }"
-            class="scale-75"
-            >{{ header.icon }}</mat-icon
-          >
-          <a [routerLink]="header.link" class="text-new-gray-800 text-base font-medium">{{
-            header.labelKey | translate
-          }}</a>
-        </div>
-      }
-    </div>
-    <div class="bg-new-gray-200 h-5 w-px"></div>
+  <div class="flex items-center gap-6 px-6 cursor-pointer" routerLink="/">
+    <img
+      src="https://cdn.discordapp.com/avatars/485912377574031370/e5fd6b9374aa0faf32a7b9150759e815.png?size=1024"
+      alt="Logo"
+      class="h-10 w-10 shadow-sm rounded dark:shadow-white/40"
+    />
+    <div class="font-mono">João Pedro</div>
+  </div>
+  <div class="flex h-full max-sm:hidden">
+    @for (header of headers; let last = $last; track header.labelKey) {
+      <a
+        [routerLink]="header.link"
+        [ngClass]="{ 'border-l': !last, 'border-x': last }"
+        class="flex items-center gap-2 border-solid border-gray-200 dark:border-gray-800 text-text-light dark:text-text-dark text-base font-medium px-4 h-full"
+      >
+        <mat-icon class="scale-75">{{ header.icon }}</mat-icon>
+        <span class="font-mono">{{ header.labelKey | translate }}</span></a
+      >
+    }
+  </div>
+  <div class="flex items-center justify-end gap-2 grow pr-2">
+    <div class="w-px h-16 bg-gray-200 dark:bg-gray-800"></div>
+    <button
+      type="button"
+      aria-label="Change Language"
+      class="flex items-center justify-between text-text-light dark:text-text-dark text-xs font-medium px-2 py-2"
+      (click)="changeLanguage()"
+    >
+      <mat-icon
+        [matTooltip]="'HEADER.MENU.LANGUAGE' | translate"
+        class="text-text-light dark:text-text-dark scale-75"
+        >language</mat-icon
+      >
+    </button>
+    <div class="w-px h-16 bg-gray-200 dark:bg-gray-800"></div>
 
     <button
       type="button"
-      class="flex items-center justify-between w-full text-new-gray-800 text-xs font-medium py-2"
-      (click)="changeLanguage()"
+      aria-label="Toggle dark mode"
+      class="max-sm:hidden flex items-center justify-between text-text-light dark:text-text-dark text-xs font-medium px-2 py-2"
+      (click)="toggleDarkMode()"
     >
-      {{ 'HEADER.MENU.LANGUAGE' | translate }}
-      <mat-icon class="text-new-gray-800 scale-75">language</mat-icon>
+      <mat-icon
+        [matTooltip]="'HEADER.MENU.DARK_MODE' | translate"
+        class="text-text-light dark:text-text-dark scale-75"
+      >
+        @if (darkModeService.isDarkMode()) {
+          brightness_2
+        } @else {
+          light_mode
+        }
+      </mat-icon>
+    </button>
+    <button
+      type="button"
+      class="sm:hidden flex items-center justify-between text-text-light dark:text-text-dark text-xs font-medium px-2 py-2"
+      (click)="toggleMenu()"
+    >
+      <mat-icon
+        [matTooltip]="'HEADER.MENU.MENU' | translate"
+        class="text-text-light dark:text-text-dark scale-90"
+        >menu</mat-icon
+      >
     </button>
   </div>
 </div>
+
+@if (isMenuOpen()) {
+  <div
+    @menuSlide
+    class="fixed bg-background-light dark:bg-background-dark z-50 flex justify-center items-center p-2 w-screen h-screen top-0 left-0"
+  >
+    <div
+      class="w-full h-full max-w-screen-lg bg-background-light dark:bg-background-dark flex flex-col gap-4 p-4"
+    >
+      <div class="flex justify-end">
+        <button
+          type="button"
+          class="flex items-center justify-between text-text-light dark:text-text-dark text-xs font-medium px-2 py-2"
+          (click)="toggleMenu()"
+        >
+          <mat-icon
+            [matTooltip]="'HEADER.MENU.CLOSE' | translate"
+            class="text-text-light dark:text-text-dark scale-90"
+            >close</mat-icon
+          >
+        </button>
+      </div>
+      <div class="flex flex-col gap-6">
+        @for (header of headers; let last = $last; track header.labelKey) {
+          <a
+            [routerLink]="header.link"
+            class="flex items-center gap-2 text-text-light dark:text-text-dark text-base font-medium px-4 h-full"
+          >
+            <mat-icon>{{ header.icon }}</mat-icon>
+            <span class="font-mono text-lg">{{ header.labelKey | translate }}</span>
+
+            @if (currentRoute === header.link) {
+              <mat-icon class="text-primary">chevron_left</mat-icon>
+            }
+          </a>
+          <div class="w-full h-px bg-gray-200 dark:bg-gray-800"></div>
+        }
+        <button
+          type="button"
+          class="flex items-center gap-2 text-text-light dark:text-text-dark text-base font-medium px-4 h-full"
+          (click)="changeLanguage()"
+        >
+          <mat-icon
+            [matTooltip]="'HEADER.MENU.LANGUAGE' | translate"
+            class="text-text-light dark:text-text-dark"
+            >language</mat-icon
+          >
+          <span class="font-mono text-lg">{{ 'HEADER.MENU.LANGUAGE' | translate }}</span>
+        </button>
+        <div class="w-full h-px bg-gray-200 dark:bg-gray-800"></div>
+
+        <button
+          type="button"
+          class="flex items-center gap-2 text-text-light dark:text-text-dark text-base font-medium px-4 h-full"
+          (click)="toggleDarkMode()"
+        >
+          <mat-icon
+            [matTooltip]="'HEADER.MENU.DARK_MODE' | translate"
+            class="text-text-light dark:text-text-dark"
+          >
+            @if (darkModeService.isDarkMode()) {
+              brightness_2
+            } @else {
+              light_mode
+            }
+          </mat-icon>
+          <span class="font-mono text-lg">{{ 'HEADER.MENU.DARK_MODE' | translate }}</span>
+        </button>
+      </div>
+      <div class="flex items-end justify-center h-48">
+        <button
+          type="button"
+          (click)="konamiCodeService.activateKonamiCode()"
+          class="text-text-light/30 dark:text-text-dark/30 text-base font-medium px-4"
+        >
+          ↑ ↑ ↓ ↓ ← → ← → B A
+        </button>
+      </div>
+    </div>
+  </div>
+}

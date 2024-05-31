@@ -1,10 +1,10 @@
 export default {
   HEADER: {
     HOME: 'Home',
-    MY_COMPANY: 'My company',
-    CLIENTS: 'Clients',
+    PROJECTS: 'Projects',
+    ABOUT_ME: 'About me',
     MENU: {
-      LOGOUT: 'Logout',
+      DARK_MODE: 'Dark mode',
       LANGUAGE: 'Change language',
     },
     LANGUAGE_CHANGED: 'Language changed to English',
