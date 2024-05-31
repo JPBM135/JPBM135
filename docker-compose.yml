@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   nginx:
+    restart: unless-stopped
     image: nginx:latest
     ports:
       - '443:443'
