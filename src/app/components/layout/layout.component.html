@@ -1,7 +1,9 @@
-<div class="grid grid-rows-[auto_1fr_auto] min-h-screen">
+<div
+  class="grid grid-rows-[auto_1fr_auto] min-h-screen bg-background-light dark:bg-background-dark"
+>
   <app-header></app-header>
   <ng-content></ng-content>
-  <div class="text-new-gray-500 p-8 text-center" i18n>
-    {{ 'FOOTER.COPYRIGHT' | translate: { year: currentYear } }}
-  </div>
+  @if (showFooter) {
+    <app-footer></app-footer>
+  }
 </div>
