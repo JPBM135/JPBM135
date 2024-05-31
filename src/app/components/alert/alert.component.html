@@ -1,5 +1,8 @@
 <div
   class="absolute z-[10000] bottom-10 left-10 flex flex-col gap-4 justify-start items-start bg-transparent transition-all"
+  aria-live="assertive"
+  aria-atomic="true"
+  role="alert"
 >
   @for (alert of alerts(); track alert.id) {
     <div

@@ -1,3 +1,4 @@
+import { LiveAnnouncer } from '@angular/cdk/a11y';
 import { CommonModule } from '@angular/common';
 import type { OnDestroy, OnInit } from '@angular/core';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
@@ -41,7 +42,10 @@ export class AlertComponent implements OnInit, OnDestroy {
 
   private unsubscribeAll$ = new Subject<void>();
 
-  public constructor(private readonly alertService: AlertService) {}
+  public constructor(
+    private readonly alertService: AlertService,
+    private readonly liveAnnouncer: LiveAnnouncer,
+  ) {}
 
   public ngOnInit(): void {
     this.alertService.alertEmitter$.pipe(takeUntil(this.unsubscribeAll$)).subscribe((data) => {
@@ -85,6 +89,8 @@ export class AlertComponent implements OnInit, OnDestroy {
       animationState: signal('enter'),
       progress: signal(progress ?? null),
     };
+
+    void this.liveAnnouncer.announce(message, 'assertive');
 
     if (this.alerts().length === 0) {
       this.alerts.set([alert]);
