@@ -20,20 +20,31 @@ export class SeoService {
     });
   }
 
-  public updateTags(): void {
-    this.translationService.get(this.titleKey).subscribe((title) => this.title.setTitle(title));
-
-    this.translationService
-      .get(this.descriptionKey)
-      .subscribe((description) =>
-        this.meta.updateTag({ name: 'description', content: description }),
-      );
-  }
-
   public setTags(title: string, description: string): void {
     this.titleKey = title;
     this.descriptionKey = description;
 
     this.updateTags();
+  }
+
+  public updateTags(): void {
+    this.translationService.get([this.titleKey, this.descriptionKey]).subscribe((translations) => {
+      this.title.setTitle(translations[this.titleKey]);
+      this.meta.updateTag({ name: 'title', content: translations[this.titleKey] });
+      this.meta.updateTag({ name: 'description', content: translations[this.descriptionKey] });
+
+      this.updateOgTags(translations[this.titleKey], translations[this.descriptionKey]);
+      this.updateTwitterTags(translations[this.titleKey], translations[this.descriptionKey]);
+    });
+  }
+
+  private updateOgTags(title: string, description: string): void {
+    this.meta.updateTag({ property: 'og:title', content: title });
+    this.meta.updateTag({ property: 'og:description', content: description });
+  }
+
+  private updateTwitterTags(title: string, description: string): void {
+    this.meta.updateTag({ name: 'twitter:title', content: title });
+    this.meta.updateTag({ name: 'twitter:description', content: description });
   }
 }
