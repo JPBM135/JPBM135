@@ -12,7 +12,7 @@ export function provideTranslation(): (EnvironmentProviders | Provider)[] {
     },
     importProvidersFrom(
       TranslateModule.forRoot({
-        defaultLanguage: 'pt-BR',
+        defaultLanguage: 'en-US',
         useDefaultLang: true,
       }),
     ),
