@@ -5,6 +5,13 @@ export interface MetaData {
   skills: string[];
 }
 
+export enum ProjectType {
+  Backend = 'backend',
+  Frontend = 'frontend',
+  Fullstack = 'fullstack',
+  Other = 'other',
+}
+
 export interface Project {
   date: string;
   description: string;
@@ -13,6 +20,7 @@ export interface Project {
   localizations?: ProjectLocalization[];
   skills: string[];
   title: string;
+  type: ProjectType;
   url?: string;
 }
 
