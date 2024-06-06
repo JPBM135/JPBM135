@@ -1,0 +1,62 @@
+@if (localizedProject()) {
+  <div
+    [ngClass]="classByType()"
+    class="product-card__box relative flex justify-center items-center transition-all w-96 h-[25rem] duration-500"
+  >
+    <span
+      class="product-card__box__span block absolute t-0 l-0 r-0 b-0 z-10 pointer-events-none"
+    ></span>
+    <div
+      class="flex flex-col gap-2 relative l-0 py-5 px-10 bg-background-light/60 dark:bg-background-dark/60 rounded-lg backdrop:blur-base shadow-lg z-[1] text-text-light dark:text-text-dark font-mono min-w-80"
+    >
+      <div class="flex flex-col">
+        <div class="text-xs">
+          @switch (project.type) {
+            @case ('frontend') {
+              {{ 'PROJECTS_PAGE.CARD.TYPE.FRONTEND' | translate }}
+            }
+            @case ('backend') {
+              {{ 'PROJECTS_PAGE.CARD.TYPE.BACKEND' | translate }}
+            }
+            @case ('fullstack') {
+              {{ 'PROJECTS_PAGE.CARD.TYPE.FULLSTACK' | translate }}
+            }
+            @default {
+              {{ 'PROJECTS_PAGE.CARD.TYPE.OTHER' | translate }}
+            }
+          }
+        </div>
+        <h2 class="text-2xl font-semibold leading-4">
+          {{ localizedProject()!.title }}
+        </h2>
+      </div>
+      <p class="product-card__box__content--description">{{ localizedProject()!.description }}</p>
+      <div class="flex gap-4 w-full justify-start items-center">
+        @if (project.github) {
+          <a
+            href="{{ project.github }}"
+            aria-label="Github"
+            class="flex gap-2 items-center justify-center px-4 py-2 bg-background-dark/60 dark:bg-background-light/60 text-text-dark rounded-md transition-all duration-300 hover:bg-background-dark/70 dark:hover:bg-background-light/70"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="block ph-bold ph-github-logo"></i>
+            Github
+          </a>
+        }
+        @if (project.url) {
+          <a
+            href="{{ project.url }}"
+            aria-label="See more"
+            class="flex gap-2 items-center justify-center px-4 py-2 bg-background-dark/60 dark:bg-background-light/60 text-text-dark rounded-md transition-all duration-300 hover:bg-background-dark/70 dark:hover:bg-background-light/70"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{ 'PROJECTS_PAGE.CARD.SEE_MORE' | translate }}
+            <mat-icon class="scale-75">open_in_new</mat-icon>
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+}

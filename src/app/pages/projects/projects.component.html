@@ -1,0 +1,58 @@
+<app-layout>
+  <div class="relative overflow-hidden w-full h-full bg-gray-50 dark:bg-gray-950">
+    <app-background-wave
+      class="fixed sm:absolute top-[34rem] max-sm:top-[38rem] -right-16 rotate-[-165deg] scale-[3] blur-lg"
+    ></app-background-wave>
+    <app-background-wave
+      class="fixed sm:absolute top-24 max-sm:top-80 scale-[3] rotate-[120deg] -left-36 blur-lg"
+    ></app-background-wave>
+    <div class="z-10 flex flex-col gap-8 justify-start max-md:justify-center p-10 max-sm:p-6">
+      <div class="z-20 text-text-light dark:text-text-dark">
+        <h1 class="text-7xl font-bold text-text-light dark:text-text-dark px-3">
+          {{ 'PROJECTS_PAGE.TITLE' | translate }}
+        </h1>
+        <p
+          class="bg-gray-50/50 dark:bg-gray-950/50 font-mono sm:gap-2 p-3 rounded-md max-xs:text-base"
+        >
+          {{ 'PROJECTS_PAGE.SUBTITLE' | translate }}
+        </p>
+      </div>
+      <div class="z-20 flex gap-4 w-full overflow-x-auto p-2">
+        @for (filter of FILTERS; track filter.value) {
+          <button
+            type="button"
+            [ngClass]="{
+              'bg-gradient-to-br from-emerald-500 to-blue-500':
+                filter.value === 'frontend' && filter.value === selectedFilter(),
+              'bg-gradient-to-br from-yellow-500 to-pink-500':
+                filter.value === 'backend' && filter.value === selectedFilter(),
+              'bg-gradient-to-br from-pink-500 via-blue-500 to-emerald-500':
+                filter.value === 'fullstack' && filter.value === selectedFilter(),
+              'bg-gradient-to-br from-blue-500 to-pink-500':
+                filter.value === 'other' && filter.value === selectedFilter(),
+              'bg-gradient-to-br from-yellow-500 to-emerald-500':
+                filter.value === 'all' && filter.value === selectedFilter()
+            }"
+            (click)="setFilter(filter.value)"
+            class="flex items-center justify-start px-4 gap-2 text-text-light dark:text-text-dark text-xs font-medium w-full max-w-44 h-12 bg-slate-100/40 dark:bg-slate-700/40 rounded-full transition-all duration-500 hover:bg-white dark:hover:bg-slate-700 shadow-base"
+          >
+            <mat-icon class="text-text-light dark:text-text-dark scale-90">
+              {{ filter.icon }}
+            </mat-icon>
+            <span class="truncate">{{ filter.label | translate }}</span>
+          </button>
+        }
+      </div>
+
+      <div
+        class="grid grid-flow-dense grid-cols-[repeat(auto-fill,minmax(400px,1fr))] gap-8 justify-center"
+      >
+        @for (project of filteredProjects(); track project.title) {
+          <div class="flex items-center justify-center">
+            <app-project-card [project]="project" class="max-xs:scale-[0.85]"></app-project-card>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</app-layout>

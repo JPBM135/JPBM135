@@ -1,0 +1,127 @@
+.product-card {
+  &__box {
+    &::before,
+    &::after {
+      content: ' ';
+      position: absolute;
+      top: 0;
+      left: 25%;
+      width: 50%;
+      height: 100%;
+      text-decoration: none;
+      border-radius: 8px;
+      transform: skewX(15deg);
+      transition: 0.5s;
+    }
+
+    &::after {
+      filter: blur(30px);
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      &:hover {
+        &::before,
+        &::after {
+          transform: skewX(0deg);
+          left: 14.5%;
+          width: calc(100% - 30%);
+        }
+      }
+    }
+
+    &::before,
+    &::after {
+      background: linear-gradient(315deg, var(--linear-gradient));
+    }
+
+    &--front {
+      --linear-gradient-start: #4dff03;
+      --linear-gradient-end: #00d0ff;
+
+      --linear-gradient: var(--linear-gradient-start), var(--linear-gradient-end);
+    }
+
+    &--back {
+      --linear-gradient-start: #ffbc00;
+      --linear-gradient-end: #ff0058;
+
+      --linear-gradient: var(--linear-gradient-start), var(--linear-gradient-end);
+    }
+
+    &--fullstack {
+      --linear-gradient-start: #ff0058;
+      --linear-gradient-stop: #03a9f4;
+      --linear-gradient-end: #4dff03;
+
+      --linear-gradient: var(--linear-gradient-start), var(--linear-gradient-stop),
+        var(--linear-gradient-end);
+    }
+
+    &--other {
+      --linear-gradient-start: #03a9f4;
+      --linear-gradient-end: #ff0058;
+
+      --linear-gradient: var(--linear-gradient-start), var(--linear-gradient-end);
+    }
+
+    &__span {
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        opacity: 0;
+        transition: 0.1s;
+        animation: positionCorrectionAnimation 2s ease-in-out infinite;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      &::before {
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+      }
+
+      &::after {
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        transition: 0.5s;
+        animation-delay: -1s;
+      }
+
+      &:hover {
+        &::before {
+          top: -50px;
+          left: 50px;
+          width: 100px;
+          height: 100px;
+          opacity: 1;
+        }
+
+        &::after {
+          bottom: -50px;
+          right: 50px;
+          width: 100px;
+          height: 100px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@keyframes positionCorrectionAnimation {
+  0%,
+  100% {
+    transform: translateY(10px);
+  }
+
+  50% {
+    transform: translate(-10px);
+  }
+}
