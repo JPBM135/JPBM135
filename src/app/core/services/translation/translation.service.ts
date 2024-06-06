@@ -2,7 +2,7 @@ import { Injectable, inject } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { TranslationManagerStore } from '../../translation/TranslationManagerStore';
 import { AlertService } from '../alert/alert.service';
-import type { TranslationLanguageMap } from './translation.constants';
+import type { SupportedLanguages, TranslationLanguageMap } from './translation.constants';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +18,11 @@ export class TranslationLoaderService {
     this.translationService.setTranslation('en-US', mergedLanguageMap.get('en-US')!);
     this.translationService.setTranslation('pt-BR', mergedLanguageMap.get('pt-BR')!);
     this.translationService.setTranslation('es-ES', mergedLanguageMap.get('es-ES')!);
+
+    const browserLanguage = navigator.language as SupportedLanguages;
+    if ([...mergedLanguageMap.keys()].includes(browserLanguage)) {
+      this.translationService.use(browserLanguage).subscribe(() => {});
+    }
   }
 
   public getTranslationManagers(): TranslationLanguageMap {
