@@ -9,5 +9,6 @@ export default {
     TITLE: 'Eu sou João Pedro',
     DESCRIPTION:
       'Desenvolvedor full stack com paixão por tecnologia e sempre em busca de novos desafios.',
+    RESUME: 'Currículo',
   },
 };
