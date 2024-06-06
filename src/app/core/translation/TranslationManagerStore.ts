@@ -4,8 +4,10 @@ import { footerTranslationManager } from '../../components/footer/i18n';
 import { headerTranslationManager } from '../../components/header/i18n';
 import { konamiCardTranslationManager } from '../../components/konami-code/i18n';
 import { rootTranslationManager } from '../../i18n';
+import { aboutMePageTranslationManager } from '../../pages/about-me/i18n';
 import { homePageTranslationManager } from '../../pages/home/i18n';
 import { notFoundPageTranslationManager } from '../../pages/not-found/i18n';
+import { projectsPageTranslationManager } from '../../pages/projects/i18n';
 import { alertServiceTranslationManager } from '../services/alert/i18n';
 import { errorHandlerTranslationManager } from '../services/error-handler/i18n';
 import {
@@ -28,6 +30,8 @@ export class TranslationManagerStore {
     footerTranslationManager,
     errorHandlerTranslationManager,
     notFoundPageTranslationManager,
+    projectsPageTranslationManager,
+    aboutMePageTranslationManager,
   ];
 
   public static getMergedLanguageMap(): TranslationLanguageMap {
