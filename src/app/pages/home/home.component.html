@@ -8,8 +8,8 @@
     <app-background-wave
       class="absolute top-52 max-sm:top-[40rem] scale-[3] -rotate-6 -left-36 blur-lg"
     ></app-background-wave>
-    <div class="z-10 flex max-sm:flex-col gap-16 w-full items-center justify-center px-8 pb-8">
-      <div class="text-text-light dark:text-text-dark font-mono max-w-[90%]">
+    <div class="z-10 flex max-md:flex-col gap-16 w-full items-center justify-center px-8 pb-8">
+      <div class="flex flex-col gap-2 text-text-light dark:text-text-dark font-mono max-w-[90%]">
         <h2 class="text-2xl">{{ 'HOME_PAGE.GREETINGS' | translate }}</h2>
         <h1 class="text-6xl font-bold">
           {{ 'HOME_PAGE.TITLE' | translate
@@ -37,10 +37,29 @@
           <span class="text-blue-400 hover:underline">'https://github.com/JPBM135'</span>
           <span class="sm:hidden text-red-400">)</span>
         </a>
+        <div class="flex gap-4 w-full max-sm:justify-center items-center">
+          <a
+            href="https://www.linkedin.com/in/joao-borges-martins/"
+            rel="noreferrer"
+            class="text-lg bg-gray-50/50 dark:bg-gray-950/50 font-mono flex items-center justify-center px-4 py-3 rounded-md transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 shadow-base"
+            target="_blank"
+          >
+            <i class="block ph-bold ph-linkedin-logo scale-150 mr-2"></i>
+            LinkedIn
+          </a>
+          <a
+            href="mailto:contact@jpbm.dev"
+            class="text-lg bg-gray-50/50 dark:bg-gray-950/50 font-mono flex items-center justify-center px-4 py-3 rounded-md transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 shadow-base"
+            target="_blank"
+          >
+            <i class="block ph-bold ph-envelope-open scale-150 mr-2"></i>
+            Email
+          </a>
+        </div>
       </div>
 
       <app-discord-card
-        class="min-w-[40%] w-full max-w-[40%] max-sm:max-w-full"
+        class="min-w-[40%] w-full md:max-w-[40%] max-sm:max-w-full"
         [discordData]="dataFetcherService.discordProxyData"
       ></app-discord-card>
     </div>
