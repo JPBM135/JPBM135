@@ -2,6 +2,7 @@ export default {
   SHARED: {
     YES: 'Sim',
     NO: 'Não',
+    LANGUAGE_AUTO: 'Idioma adaptado ao seu navegador',
     GO_BACK: 'Voltar',
   },
   META: {

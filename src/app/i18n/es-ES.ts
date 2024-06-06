@@ -2,6 +2,8 @@ export default {
   SHARED: {
     YES: 'Si',
     NO: 'No',
+    LANGUAGE_AUTO: 'Idioma adaptado a tu navegador',
+    GO_BACK: 'Volver',
   },
   META: {
     TITLE: 'João Pedro - Desarrollador de Software',
