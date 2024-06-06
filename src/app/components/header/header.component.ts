@@ -53,7 +53,7 @@ export class HeaderComponent {
     console.log('HeaderComponent.constructor()', this.currentRoute);
 
     this.activatedRoute.url.pipe(takeUntilDestroyed()).subscribe((url) => {
-      this.currentRoute = url[0]?.path ?? '/';
+      this.currentRoute = url[0]?.path ? `/${url[0].path}` : '/';
     });
 
     this.router.events.pipe(takeUntilDestroyed()).subscribe((event) => {
