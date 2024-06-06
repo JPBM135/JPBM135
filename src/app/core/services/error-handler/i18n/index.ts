@@ -1,6 +1,6 @@
 import { TranslationManager } from '../../../translation/TranslationManager';
-import enUS from './en';
-import es from './es';
+import enUS from './en-US';
+import es from './es-ES';
 import ptBR from './pt-BR';
 
 export const errorHandlerTranslationManager = new TranslationManager()
