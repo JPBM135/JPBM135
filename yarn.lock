@@ -10076,7 +10076,6 @@ __metadata:
     tailwindcss: "npm:^3.4.3"
     tslib: "npm:^2.6.2"
     typescript: "npm:~5.4.5"
-    zone.js: "npm:~0.14.6"
   languageName: unknown
   linkType: soft
 
@@ -15753,13 +15752,6 @@ __metadata:
   version: 0.8.15
   resolution: "zen-observable@npm:0.8.15"
   checksum: 10c0/71cc2f2bbb537300c3f569e25693d37b3bc91f225cefce251a71c30bc6bb3e7f8e9420ca0eb57f2ac9e492b085b8dfa075fd1e8195c40b83c951dd59c6e4fbf8
-  languageName: node
-  linkType: hard
-
-"zone.js@npm:~0.14.6":
-  version: 0.14.6
-  resolution: "zone.js@npm:0.14.6"
-  checksum: 10c0/dc138197428b7d5c5bc6119dc94748f700426a340c41fc6ebf5fe3fa7ff302fa970350c44719f644020a82caabf9fc761003af285c7707192c77bcc312bfd264
   languageName: node
   linkType: hard
 

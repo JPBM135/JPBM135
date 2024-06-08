@@ -1,5 +1,10 @@
 import { provideHttpClient } from '@angular/common/http';
-import type { ApplicationConfig, EnvironmentProviders, Provider } from '@angular/core';
+import {
+  provideExperimentalZonelessChangeDetection,
+  type ApplicationConfig,
+  type EnvironmentProviders,
+  type Provider,
+} from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import {
   PreloadAllModules,
@@ -30,7 +35,7 @@ export const appConfig: ApplicationConfig = {
       withInMemoryScrolling({ scrollPositionRestoration: 'enabled' }),
     ),
     provideDateAdaptors(),
-
+    provideExperimentalZonelessChangeDetection(),
     provideTranslation(),
   ),
 };
