@@ -16,6 +16,7 @@ import { routes } from './app.routes';
 import { provideDateAdaptors } from './core/providers/provideDateAdaptors';
 import { provideSentry } from './core/providers/provideSentry';
 import { provideTranslation } from './core/providers/provideTranslation';
+import { provideVercelSpeedInsights } from './core/providers/provideVercelSpeedInsights';
 
 function createProviders(
   ...providers: (unknown[] | unknown)[]
@@ -26,6 +27,7 @@ function createProviders(
 export const appConfig: ApplicationConfig = {
   providers: createProviders(
     provideSentry(),
+    provideVercelSpeedInsights(),
     provideAnimationsAsync(),
     provideHttpClient(),
     provideHttpClient(),
