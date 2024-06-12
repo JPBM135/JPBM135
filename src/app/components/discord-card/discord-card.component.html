@@ -54,9 +54,9 @@
   } @else if (discordData() === null) {
     <div class="flex h-60 w-full items-center justify-center skeleton rounded-lg"></div>
   } @else {
-    <div class="flex flex-col items-center justify-center">
-      <mat-icon class="text-6xl">error</mat-icon>
-      <p class="text-lg">Failed to fetch Discord data</p>
+    <div class="flex flex-col gap-3 items-center justify-center py-5">
+      <mat-icon class="text-primary scale-150">error</mat-icon>
+      <p class="text-lg">Failed to fetch Discord data :(</p>
     </div>
   }
 </div>

@@ -51,9 +51,9 @@ export class DataFetcherService implements OnDestroy {
       return this.discordProxyData();
     }
 
-    const response$ = this.httpClient.get<DiscordProxyData>(environment.apiProxy);
+    const response$ = this.httpClient.get<DiscordProxyData>(environment.apiProxy + 'discord-proxy');
 
-    const data = await firstValueFrom<DiscordProxyData>(response$);
+    const data = await firstValueFrom<DiscordProxyData>(response$).catch((error) => error);
     this.discordProxyData.set(data);
     return data;
   }
