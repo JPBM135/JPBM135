@@ -3,6 +3,7 @@ export default {
     HOME: 'Início',
     PROJECTS: 'Projetos',
     ABOUT_ME: 'Sobre mim',
+    CONTACT_ME: 'Contato',
     MENU: {
       DARK_MODE: 'Modo escuro',
       LANGUAGE: 'Trocar idioma',

@@ -3,7 +3,7 @@
 >
   <div class="flex items-center gap-6 px-6 cursor-pointer" routerLink="/">
     <img
-      src="https://cdn.discordapp.com/avatars/485912377574031370/e5fd6b9374aa0faf32a7b9150759e815.png?size=1024"
+      src="/assets/images/me.png"
       alt="Logo"
       class="h-10 w-10 shadow-sm rounded dark:shadow-white/40"
     />
@@ -13,12 +13,21 @@
     @for (header of headers; let last = $last; track header.labelKey) {
       <a
         [routerLink]="header.link"
-        [ngClass]="{ 'border-l': !last, 'border-x': last }"
+        [ngClass]="{
+          'border-l': !last,
+          'border-x': last
+        }"
         class="flex items-center gap-2 border-solid border-gray-200 dark:border-gray-800 text-text-light dark:text-text-dark text-base font-medium px-4 h-full"
       >
         <mat-icon class="scale-75">{{ header.icon }}</mat-icon>
-        <span class="font-mono max-md:w-10 truncate">{{ header.labelKey | translate }}</span></a
-      >
+        <span
+          [ngClass]="{
+            'growing-hover--open ': currentRoute === header.link
+          }"
+          class="growing-hover__base growing-hover--primary growing-hover__from-left pt-1 font-mono max-md:w-10 truncate"
+          >{{ header.labelKey | translate }}</span
+        >
+      </a>
     }
   </div>
   <div class="flex items-center justify-end gap-2 grow pr-2">

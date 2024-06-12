@@ -30,6 +30,7 @@ export class HeaderComponent {
     { labelKey: 'HEADER.HOME', link: '/', icon: 'home' },
     { labelKey: 'HEADER.PROJECTS', link: '/projects', icon: 'hub' },
     { labelKey: 'HEADER.ABOUT_ME', link: '/about-me', icon: 'frame_person' },
+    { labelKey: 'HEADER.CONTACT_ME', link: '/contact-me', icon: 'email' },
   ];
 
   public SUPPORTED_LANGUAGES = [

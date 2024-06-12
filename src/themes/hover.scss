@@ -13,31 +13,27 @@
     transition: transform 250ms ease-in-out;
   }
 
-  &--primary {
-    &__base:after {
-      border-bottom-color: #c0392b;
-    }
+  &--primary:after {
+    border-bottom-color: #c0392b;
   }
 
-  &--secondary {
-    &__base:after {
-      border-bottom-color: #e74c3c;
-    }
+  &--secondary:after {
+    border-bottom-color: #e74c3c;
   }
 
-  &--dark {
-    &__base:after {
-      border-bottom-color: #34495e;
-    }
+  &--dark:after {
+    border-bottom-color: #34495e;
   }
 
-  &--light {
-    &__base:after {
-      border-bottom-color: #ecf0f1;
-    }
+  &--light:after {
+    border-bottom-color: #ecf0f1;
   }
 
   &__base:hover:after {
+    transform: scaleX(1);
+  }
+
+  &--open:after {
     transform: scaleX(1);
   }
 

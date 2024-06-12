@@ -4,6 +4,7 @@ export default {
     NO: 'No',
     LANGUAGE_AUTO: 'Language adapted to your browser',
     GO_BACK: 'Go back',
+    OR: 'or',
   },
   META: {
     TITLE: 'João Pedro - Software Developer',

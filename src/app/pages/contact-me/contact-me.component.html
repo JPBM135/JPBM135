@@ -1,0 +1,115 @@
+<app-layout>
+  <div
+    class="relative overflow-hidden w-full h-full bg-gray-50 dark:bg-gray-950 flex justify-center"
+  >
+    <app-background-wave
+      class="absolute -top-36 -right-16 rotate-[-165deg] scale-[3] blur-lg"
+    ></app-background-wave>
+    <app-background-wave
+      class="absolute top-52 max-sm:top-[40rem] scale-[3] -rotate-6 -left-36 blur-lg"
+    ></app-background-wave>
+    <app-background-wave
+      class="absolute top-[60rem] scale-[3] rotate-6 blur-lg"
+    ></app-background-wave>
+    <div class="z-10 flex max-md:flex-col gap-4 w-full items-center justify-center px-8 pb-8">
+      <div class="z-20 text-text-light dark:text-text-dark">
+        <h1 class="text-7xl font-bold text-text-light dark:text-text-dark px-3">
+          {{ 'CONTACT_ME_PAGE.TITLE' | translate }}
+        </h1>
+        <p
+          class="bg-gray-50/50 dark:bg-gray-950/50 font-mono sm:gap-2 p-3 rounded-md max-xs:text-base"
+        >
+          {{ 'CONTACT_ME_PAGE.SUBTITLE' | translate }}
+        </p>
+      </div>
+      <form
+        class="z-20 flex flex-col gap-4 w-full max-sm:w-[90%] max-xs:w-full p-4 rounded-lg text-text-light dark:text-text-dark bg-background-light/60 shadow-lg dark:bg-slate-900/40"
+        [formGroup]="contactForm"
+        (ngSubmit)="submitForm()"
+      >
+        <div class="flex flex-col gap-2">
+          <label for="name" class="font-medium">
+            {{ 'CONTACT_ME_PAGE.FORM.NAME' | translate }}
+          </label>
+          <input
+            type="text"
+            id="name"
+            formControlName="name"
+            [ngClass]="{ 'border-red-500': controlInvalidAndTouched('message') }"
+            class="p-3 bg-gray-300/70 dark:bg-gray-700/70 rounded-md border border-solid border-transparent"
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="email" class="font-medium">
+            {{ 'CONTACT_ME_PAGE.FORM.EMAIL' | translate }}
+          </label>
+          <input
+            type="email"
+            id="email"
+            formControlName="email"
+            [ngClass]="{ 'border-red-500': controlInvalidAndTouched('message') }"
+            class="p-3 bg-gray-300/70 dark:bg-gray-700/70 rounded-md border border-solid border-transparent"
+          />
+        </div>
+        <div class="flex flex-col gap-2">
+          <label for="message" class="font-medium">
+            {{ 'CONTACT_ME_PAGE.FORM.MESSAGE' | translate }}
+          </label>
+          <textarea
+            id="message"
+            formControlName="message"
+            [ngClass]="{ 'border-red-500': controlInvalidAndTouched('message') }"
+            class="p-3 bg-gray-300/70 dark:bg-gray-700/70 rounded-md border border-solid border-transparent"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          [ngClass]="{
+            'cursor-not-allowed': contactForm.invalid,
+            'opacity-80': isLoading() || contactForm.invalid
+          }"
+          class="bg-gradient-to-br from-emerald-500 to-blue-500 font-medium p-3 rounded-md"
+        >
+          {{ 'CONTACT_ME_PAGE.FORM.SUBMIT' | translate }}
+        </button>
+
+        <div class="flex w-full items-center justify-center">
+          <div class="h-px w-full dark:bg-gray-50/50 bg-gray-950/50"></div>
+          <p class="text-text-light dark:text-text-dark font-mono px-4 uppercase">
+            {{ 'SHARED.OR' | translate }}
+          </p>
+          <div class="h-px w-full dark:bg-gray-50/50 bg-gray-950/50"></div>
+        </div>
+        <div
+          class="flex gap-4 justify-center w-full max-sm:justify-center items-center text-text-light dark:text-text-dark"
+        >
+          <a
+            href="https://www.linkedin.com/in/joao-borges-martins/"
+            rel="noreferrer"
+            class="text-lg bg-gray-50/50 dark:bg-gray-950/50 font-mono flex items-center justify-center px-4 py-3 rounded-md transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 shadow-base"
+            target="_blank"
+          >
+            <i class="block ph-bold ph-linkedin-logo scale-150 sm:mr-2"></i>
+            <span class="max-sm:hidden">LinkedIn</span>
+          </a>
+          <a
+            href="mailto:contact@jpbm.dev"
+            class="text-lg bg-gray-50/50 dark:bg-gray-950/50 font-mono flex items-center justify-center px-4 py-3 rounded-md transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 shadow-base"
+            target="_blank"
+          >
+            <i class="block ph-bold ph-envelope-open scale-150 sm:mr-2"></i>
+            <span class="max-sm:hidden">Email</span>
+          </a>
+          <a
+            href="https://discordapp.com/users/485912377574031370/"
+            class="text-lg bg-gray-50/50 dark:bg-gray-950/50 font-mono flex items-center justify-center px-4 py-3 rounded-md transition-all duration-300 hover:bg-white dark:hover:bg-slate-700 shadow-base"
+            target="_blank"
+          >
+            <i class="block ph-bold ph-discord-logo scale-150 sm:mr-2"></i>
+            <span class="max-sm:hidden">Discord</span>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</app-layout>

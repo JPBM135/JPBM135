@@ -5,6 +5,7 @@ import { headerTranslationManager } from '../../components/header/i18n';
 import { konamiCardTranslationManager } from '../../components/konami-code/i18n';
 import { rootTranslationManager } from '../../i18n';
 import { aboutMePageTranslationManager } from '../../pages/about-me/i18n';
+import { contactMePageTranslationManager } from '../../pages/contact-me/i18n';
 import { homePageTranslationManager } from '../../pages/home/i18n';
 import { notFoundPageTranslationManager } from '../../pages/not-found/i18n';
 import { projectsPageTranslationManager } from '../../pages/projects/i18n';
@@ -32,6 +33,7 @@ export class TranslationManagerStore {
     notFoundPageTranslationManager,
     projectsPageTranslationManager,
     aboutMePageTranslationManager,
+    contactMePageTranslationManager,
   ];
 
   public static getMergedLanguageMap(): TranslationLanguageMap {
