@@ -5,6 +5,6 @@ export const environment = {
     'https://6602eb66c60d5f1183430cc34a6084a9@o4505281572765696.ingest.us.sentry.io/4507415447142400',
   r2Url: 'https://r2.jpbm.dev',
   r2DataPath: '/meta/data.json',
-  apiProxy: 'https://proxy.jpbm135.workers.dev/',
+  apiProxy: 'https://site-api.jpbm135.workers.dev/',
   turnstileKey: '0x4AAAAAAAcZkJZuaSCRUnlC',
 };
