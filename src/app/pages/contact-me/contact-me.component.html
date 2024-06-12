@@ -62,6 +62,14 @@
             class="p-3 bg-gray-300/70 dark:bg-gray-700/70 rounded-md border border-solid border-transparent"
           ></textarea>
         </div>
+        <div class="flex justify-center">
+          <ngx-turnstile
+            [siteKey]="TURNSTILE_SITE_KEY"
+            theme="auto"
+            [tabIndex]="0"
+            [formControl]="getControl('cfToken')"
+          ></ngx-turnstile>
+        </div>
         <button
           type="submit"
           [ngClass]="{

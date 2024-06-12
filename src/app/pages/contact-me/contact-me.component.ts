@@ -3,6 +3,8 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { NgxTurnstileFormsModule, NgxTurnstileModule } from 'ngx-turnstile';
+import { environment } from '../../../environments/environment';
 import { BackgroundWaveComponent } from '../../components/background-wave/background-wave.component';
 import { LayoutComponent } from '../../components/layout/layout.component';
 import { AlertService } from '../../core/services/alert/alert.service';
@@ -19,11 +21,15 @@ import { ContactMeService, type ContactForm } from './contact-me.service';
     TranslateModule,
     MatIconModule,
     ReactiveFormsModule,
+    NgxTurnstileModule,
+    NgxTurnstileFormsModule,
   ],
   templateUrl: './contact-me.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactMeComponent {
+  public readonly TURNSTILE_SITE_KEY = environment.turnstileKey;
+
   public contactForm = new FormGroup({
     name: new FormControl('', [
       Validators.required,
@@ -34,6 +40,7 @@ export class ContactMeComponent {
       Validators.required,
       Validators.minLength(3),
     ]) as FormControl<string>,
+    cfToken: new FormControl('', [Validators.required]) as FormControl<string>,
   });
 
   public isLoading = signal(false);
@@ -45,6 +52,10 @@ export class ContactMeComponent {
     private readonly alertService: AlertService,
   ) {
     this.seoService.setTags('CONTACT_ME_PAGE.META.TITLE', 'CONTACT_ME_PAGE.META.DESCRIPTION');
+  }
+
+  public getControl(controlName: string): FormControl {
+    return this.contactForm.get(controlName) as FormControl;
   }
 
   public controlInvalidAndTouched(controlName: string): boolean {
@@ -62,6 +73,7 @@ export class ContactMeComponent {
       email: this.contactForm.value.email!,
       message: this.contactForm.value.message!,
       name: this.contactForm.value.name!,
+      cfToken: this.contactForm.value.cfToken!,
     };
 
     try {

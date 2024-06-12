@@ -5,4 +5,5 @@ export const environment = {
   r2Url: 'https://r2.jpbm.dev',
   r2DataPath: '/meta/data-test.json',
   apiProxy: 'https://proxy.jpbm135.workers.dev/',
+  turnstileKey: '0x4AAAAAAAcZkJZuaSCRUnlC',
 };

@@ -4,6 +4,7 @@ import { firstValueFrom } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 export interface ContactForm {
+  cfToken: string;
   email: string;
   message: string;
   name: string;

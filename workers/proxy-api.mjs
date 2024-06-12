@@ -9,10 +9,21 @@
  */
 
 const CORS = ['http://localhost:4200', 'https://jpbm.dev'];
-
 const CACHE_AGE_SECONDS = 10;
-
 const DISCORD_USER_ID = 'YOUR_USER_ID_HERE';
+const SPARK_POST_KEY = 'YOUR_SPARKPOST_API_KEY_HERE';
+const TURNSTILE_SECRET = 'YOUR_TURNSILE_SECRET';
+const MASTER_EMAIL = 'YOUR_EMAIL_HERE';
+
+/**
+ * Template for replying to the contact form submitter
+ */
+const TEMPLATE_ACK_ID = 'contact-ack';
+/**
+ * Template for forwarding the contact form to the owner
+ * of the website
+ */
+const TEMPLATE_FORWARD_ID = 'contact-forward';
 
 /**
  * @param {Request} req
@@ -69,21 +80,6 @@ async function handleDiscordRequest(req, ctx, defaultHeaders = {}) {
   }
 }
 
-const SPARK_POST_KEY = 'YOUR_SPARKPOST_API_KEY_HERE';
-
-const MASTER_EMAIL = 'YOUR_EMAIL_HERE';
-
-/**
- * Template for replying to the contact form submitter
- */
-const TEMPLATE_ACK_ID = 'contact-ack';
-
-/**
- * Template for forwarding the contact form to the owner
- * of the website
- */
-const TEMPLATE_FORWARD_ID = 'contact-forward';
-
 /**
  * @param {Request} req
  */
@@ -105,12 +101,47 @@ async function handleContactFormSubmit(req, defaultHeaders = {}) {
   }
 
   const data = await req.json();
-  const { name, email, message } = data;
-  if (!name || !email || !message) {
+  const { name, email, message, cfToken } = data;
+  if ([name, email, message, cfToken].some((field) => !field)) {
     return new Response(
       JSON.stringify({
         success: false,
         message: 'Missing required fields',
+      }),
+      {
+        status: 400,
+        headers: {
+          ...defaultHeaders,
+          'content-type': 'application/json',
+        },
+      },
+    );
+  }
+
+  const ip = req.headers.get('CF-Connecting-IP');
+
+  // Validate the token by calling the
+  // "/siteverify" API endpoint.
+  let formData = new FormData();
+  formData.append('secret', TURNSTILE_SECRET);
+  formData.append('response', cfToken);
+  if (ip) {
+    formData.append('remoteip', ip);
+  }
+
+  const url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+  const captchaResponse = await fetch(url, {
+    body: formData,
+    method: 'POST',
+  });
+
+  const captchaResponseData = await captchaResponse.json();
+
+  if (!captchaResponseData.success) {
+    return new Response(
+      JSON.stringify({
+        success: false,
+        message: 'Failed to validate captcha',
       }),
       {
         status: 400,
