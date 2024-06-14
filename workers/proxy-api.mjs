@@ -196,7 +196,12 @@ async function handleContactFormSubmit(req, defaultHeaders = {}) {
       recipients: [
         {
           address: MASTER_EMAIL,
-          substitution_data: { name, email, message, timestamp: new Date().toISOString() },
+          substitution_data: {
+            name,
+            contactEmail: email,
+            message,
+            timestamp: new Date().toISOString(),
+          },
         },
       ],
     }),
