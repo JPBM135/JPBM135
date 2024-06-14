@@ -1,17 +1,17 @@
 <app-layout>
-  <div class="relative overflow-hidden w-full h-full flex justify-center">
+  <div class="relative flex h-full w-full justify-center overflow-hidden">
     <app-background-wave
-      class="absolute top-[30%] left-[50%] -translate-x-1/2 scale-[3] blur-lg"
+      class="absolute left-[50%] top-[30%] -translate-x-1/2 scale-[3] blur-lg"
     ></app-background-wave>
     <div
-      class="z-10 text-text-light dark:text-text-dark font-mono w-full h-full flex flex-col items-center justify-center"
+      class="z-10 flex h-full w-full flex-col items-center justify-center font-mono text-text-light dark:text-text-dark"
     >
-      <div class="bg-gray-50/50 dark:bg-gray-950/50 p-4 rounded-lg shadow-md">
-        <h1 class="text-6xl font-bold text-center">404</h1>
+      <div class="rounded-lg bg-gray-50/50 p-4 shadow-md dark:bg-gray-950/50">
+        <h1 class="text-center text-6xl font-bold">404</h1>
         <p class="text-center">{{ 'NOT_FOUND_PAGE.TITLE' | translate }}</p>
         <a
           routerLink="/"
-          class="bg-gray-50/50 dark:bg-gray-950/50 font-mono flex items-center justify-center gap-2 p-3 rounded-md mt-4"
+          class="mt-4 flex items-center justify-center gap-2 rounded-md bg-gray-50/50 p-3 font-mono dark:bg-gray-950/50"
         >
           <mat-icon>home</mat-icon>
           <span>{{ 'NOT_FOUND_PAGE.GO_HOME' | translate }}</span>

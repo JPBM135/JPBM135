@@ -1,13 +1,13 @@
 @if (localizedProject()) {
   <div
     [ngClass]="classByType()"
-    class="product-card__box relative flex justify-center items-center transition-all w-96 h-[25rem] duration-500"
+    class="product-card__box relative flex h-[25rem] w-96 items-center justify-center transition-all duration-500"
   >
     <span
-      class="product-card__box__span block absolute t-0 l-0 r-0 b-0 z-10 pointer-events-none"
+      class="product-card__box__span t-0 l-0 r-0 b-0 pointer-events-none absolute z-10 block"
     ></span>
     <div
-      class="flex flex-col gap-2 relative l-0 py-5 px-10 bg-background-light/60 dark:bg-background-dark/60 rounded-lg backdrop:blur-base shadow-lg z-[1] text-text-light dark:text-text-dark font-mono min-w-80"
+      class="l-0 relative z-[1] flex min-w-80 flex-col gap-2 rounded-lg bg-background-light/60 px-10 py-5 font-mono text-text-light shadow-lg backdrop:blur-base dark:bg-background-dark/60 dark:text-text-dark"
     >
       <div class="flex flex-col">
         <div class="text-xs">
@@ -31,16 +31,16 @@
         </h2>
       </div>
       <p class="product-card__box__content--description">{{ localizedProject()!.description }}</p>
-      <div class="flex gap-4 w-full justify-start items-center">
+      <div class="flex w-full items-center justify-start gap-4">
         @if (project.github) {
           <a
             href="{{ project.github }}"
             aria-label="Github"
-            class="flex gap-2 items-center justify-center px-4 py-2 bg-background-dark/60 dark:bg-background-light/60 text-text-dark rounded-md transition-all duration-300 hover:bg-background-dark/70 dark:hover:bg-background-light/70"
+            class="flex items-center justify-center gap-2 rounded-md bg-background-dark/60 px-4 py-2 text-text-dark transition-all duration-300 hover:bg-background-dark/70 dark:bg-background-light/60 dark:hover:bg-background-light/70"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <i class="block ph-bold ph-github-logo"></i>
+            <i class="ph-bold ph-github-logo block"></i>
             Github
           </a>
         }
@@ -48,7 +48,7 @@
           <a
             href="{{ project.url }}"
             aria-label="See more"
-            class="flex gap-2 items-center justify-center px-4 py-2 bg-background-dark/60 dark:bg-background-light/60 text-text-dark rounded-md transition-all duration-300 hover:bg-background-dark/70 dark:hover:bg-background-light/70"
+            class="flex items-center justify-center gap-2 rounded-md bg-background-dark/60 px-4 py-2 text-text-dark transition-all duration-300 hover:bg-background-dark/70 dark:bg-background-light/60 dark:hover:bg-background-light/70"
             target="_blank"
             rel="noopener noreferrer"
           >

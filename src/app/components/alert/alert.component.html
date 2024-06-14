@@ -1,5 +1,5 @@
 <div
-  class="absolute z-[10000] bottom-10 left-10 flex flex-col gap-4 justify-start items-start bg-transparent transition-all"
+  class="absolute bottom-10 left-10 z-[10000] flex flex-col items-start justify-start gap-4 bg-transparent transition-all"
   aria-live="assertive"
   aria-atomic="true"
   role="alert"
@@ -9,21 +9,21 @@
       [@slideInOutAnimation]="alert.animationState()"
       [@heightGrow]
       (@slideInOutAnimation.done)="animationHandler(alert)"
-      class="relative overflow-y-hidden p-5 flex-shrink-0 gap-2 flex flex-col justify-center items-start bg-white/50 dark:bg-gray-800/50 rounded-md drop-shadow-md"
+      class="relative flex flex-shrink-0 flex-col items-start justify-center gap-2 overflow-y-hidden rounded-md bg-white/50 p-5 drop-shadow-md dark:bg-gray-800/50"
     >
-      <div class="flex gap-2 justify-center items-center">
+      <div class="flex items-center justify-center gap-2">
         <mat-icon
           fontSet="material-symbols-outlined"
           class="text-{{ themes[alert.theme()].color }} min-w-6"
         >
           {{ themes[alert.theme()].icon }}
         </mat-icon>
-        <span class="text-text-light dark:text-text-dark max-sm:text-base font-mono font-medium">{{
+        <span class="font-mono font-medium text-text-light max-sm:text-base dark:text-text-dark">{{
           alert.message()
         }}</span>
       </div>
       @if (alert.progress() && alert.theme() !== 'success') {
-        <div class="min-w-80 w-full rounded-md grid grid-cols-[1fr_auto] gap-4 items-center">
+        <div class="grid w-full min-w-80 grid-cols-[1fr_auto] items-center gap-4 rounded-md">
           <mat-progress-bar
             mode="determinate"
             [value]="alert.progress()"

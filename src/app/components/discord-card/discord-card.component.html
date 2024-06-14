@@ -1,11 +1,11 @@
 <div
-  class="bg-gray-300/30 dark:bg-gray-800/50 rounded-lg p-2 text-text-light dark:text-text-dark shadow-lg"
+  class="rounded-lg bg-gray-300/30 p-2 text-text-light shadow-lg dark:bg-gray-800/50 dark:text-text-dark"
 >
   @if (discordData() && discordData()?.success && discordData()?.data) {
     <div
-      class="flex flex-col bg-white/30 dark:bg-gray-800/50 p-5 rounded-lg shadow-md text-text-light dark:text-text-dark font-mono"
+      class="flex flex-col rounded-lg bg-white/30 p-5 font-mono text-text-light shadow-md dark:bg-gray-800/50 dark:text-text-dark"
     >
-      <div class="flex items-center gap-2 w-full justify-between">
+      <div class="flex w-full items-center justify-between gap-2">
         <h2 class="text-2xl font-bold">
           {{ discordData()!.data.discord_user.username }}
           @if (discordData()!.data.discord_user.global_name) {
@@ -26,20 +26,20 @@
         >
       </div>
       @for (activity of discordData()?.data?.activities ?? []; track $index) {
-        <div class="flex gap-4 py-2 px-2 justify-start items-center w-full">
+        <div class="flex w-full items-center justify-start gap-4 px-2 py-2">
           @if (activity.assets) {
             <img
-              class="min-h-16 h-16 rounded-lg"
+              class="h-16 min-h-16 rounded-lg"
               [src]="getActivityMediaUrl(activity)"
               alt="Discord Activity"
             />
           }
           <div class="flex flex-col items-start">
             <p class="text-sm">{{ activity.name }}</p>
-            <p class="text-sm text-gray-500 truncate max-sm:max-w-48">
+            <p class="text-sm truncate text-gray-500 max-sm:max-w-48">
               {{ activity.details }}
             </p>
-            <div class="flex gap-2 text-sm text-gray-500">
+            <div class="text-sm flex gap-2 text-gray-500">
               @if (activity.emoji && !activity.emoji.id) {
                 {{ activity.emoji.name }}
               } @else if (activity.emoji && activity.emoji.id) {
@@ -52,10 +52,10 @@
       }
     </div>
   } @else if (discordData() === null) {
-    <div class="flex h-60 w-full items-center justify-center skeleton rounded-lg"></div>
+    <div class="skeleton flex h-60 w-full items-center justify-center rounded-lg"></div>
   } @else {
-    <div class="flex flex-col gap-3 items-center justify-center py-5">
-      <mat-icon class="text-primary scale-150">error</mat-icon>
+    <div class="flex flex-col items-center justify-center gap-3 py-5">
+      <mat-icon class="scale-150 text-primary">error</mat-icon>
       <p class="text-lg">Failed to fetch Discord data :(</p>
     </div>
   }
