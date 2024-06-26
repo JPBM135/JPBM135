@@ -7,6 +7,7 @@ export default {
     MENU: {
       DARK_MODE: 'Dark mode',
       LANGUAGE: 'Change language',
+      STATUS_PAGE: 'Status page',
       MENU: 'Menu',
       CLOSE: 'Close',
     },

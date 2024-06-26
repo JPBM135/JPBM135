@@ -11,26 +11,58 @@
   </div>
   <div class="flex h-full max-sm:hidden">
     @for (header of headers; let last = $last; track header.labelKey) {
-      <a
-        [routerLink]="header.link"
-        [ngClass]="{
-          'border-l': !last,
-          'border-x': last
-        }"
-        class="flex h-full items-center gap-2 border-solid border-gray-200 px-4 text-base font-medium text-text-light dark:border-gray-800 dark:text-text-dark"
-      >
-        <mat-icon class="scale-75">{{ header.icon }}</mat-icon>
-        <span
+      @if (!header.link.startsWith('https')) {
+        <a
+          [routerLink]="header.link"
           [ngClass]="{
-            'growing-hover--open': currentRoute === header.link
+            'border-l': !last,
+            'border-x': last
           }"
-          class="growing-hover__base growing-hover--primary growing-hover__from-left truncate pt-1 font-mono max-md:w-10"
-          >{{ header.labelKey | translate }}</span
+          class="flex h-full items-center gap-2 border-solid border-gray-200 px-4 text-base font-medium text-text-light dark:border-gray-800 dark:text-text-dark"
         >
-      </a>
+          <mat-icon class="scale-75">{{ header.icon }}</mat-icon>
+          <span
+            [ngClass]="{
+              'growing-hover--open': currentRoute === header.link
+            }"
+            class="growing-hover__base growing-hover--primary growing-hover__from-left truncate pt-1 font-mono max-lg:w-10 max-md:hidden"
+            >{{ header.labelKey | translate }}</span
+          >
+        </a>
+      } @else {
+        <a
+          [href]="header.link"
+          target="_blank"
+          [ngClass]="{
+            'border-l': !last,
+            'border-x': last
+          }"
+          class="flex h-full items-center gap-2 border-solid border-gray-200 px-4 text-base font-medium text-text-light dark:border-gray-800 dark:text-text-dark"
+        >
+          <mat-icon class="scale-75">{{ header.icon }}</mat-icon>
+          <span
+            class="growing-hover__base growing-hover--primary growing-hover__from-left truncate pt-1 font-mono max-lg:w-10 max-md:hidden"
+            >{{ header.labelKey | translate }}</span
+          >
+        </a>
+      }
     }
   </div>
   <div class="flex grow items-center justify-end gap-2 pr-2">
+    <div class="h-16 w-px bg-gray-200 sm:hidden dark:bg-gray-800"></div>
+
+    <a
+      aria-label="Status page"
+      class="flex items-center justify-between px-2 py-2 text-xs font-medium text-text-light sm:hidden dark:text-text-dark"
+      href="https://status.jpbm.dev"
+      target="_blank"
+    >
+      <mat-icon
+        [matTooltip]="'HEADER.MENU.STATUS_PAGE' | translate"
+        class="scale-75 text-text-light dark:text-text-dark"
+        >radar</mat-icon
+      >
+    </a>
     <div class="h-16 w-px bg-gray-200 dark:bg-gray-800"></div>
     <button
       type="button"
