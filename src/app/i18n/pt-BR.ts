@@ -5,6 +5,7 @@ export default {
     LANGUAGE_AUTO: 'Idioma adaptado ao seu navegador',
     GO_BACK: 'Voltar',
     OR: 'ou',
+    LOADING: 'Carregando...',
   },
   META: {
     TITLE: 'JPBM135 - Desenvolvedor Full Stack',

@@ -9,6 +9,7 @@ export default {
       LANGUAGE: 'Change language',
       STATUS_PAGE: 'Status page',
       MENU: 'Menu',
+      PGP_KEY: 'PGP Key',
       CLOSE: 'Close',
     },
     LANGUAGE_CHANGED: 'Language changed to English',

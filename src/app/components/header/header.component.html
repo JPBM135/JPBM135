@@ -49,10 +49,23 @@
     }
   </div>
   <div class="flex grow items-center justify-end gap-2 pr-2">
-    <div class="h-16 w-px bg-gray-200 sm:hidden dark:bg-gray-800"></div>
+    <div class="h-16 w-px bg-gray-200 max-sm:hidden dark:bg-gray-800"></div>
 
     <a
       aria-label="Status page"
+      class="flex items-center justify-between px-2 py-2 text-xs font-medium text-text-light max-sm:hidden dark:text-text-dark"
+      routerLink="/pgp-key"
+    >
+      <mat-icon
+        [matTooltip]="'HEADER.MENU.PGP_KEY' | translate"
+        class="scale-75 text-text-light dark:text-text-dark"
+        >key</mat-icon
+      >
+    </a>
+    <div class="h-16 w-px bg-gray-200 sm:hidden dark:bg-gray-800"></div>
+
+    <a
+      aria-label="pgpKey"
       class="flex items-center justify-between px-2 py-2 text-xs font-medium text-text-light sm:hidden dark:text-text-dark"
       href="https://status.jpbm.dev"
       target="_blank"
@@ -146,6 +159,23 @@
           </a>
           <div class="h-px w-full bg-gray-200 dark:bg-gray-800"></div>
         }
+        <a
+          aria-label="Pgp key"
+          class="flex h-full items-center gap-2 px-4 text-base font-medium text-text-light dark:text-text-dark"
+          routerLink="/pgp-key"
+        >
+          <mat-icon
+            [matTooltip]="'HEADER.MENU.PGP_KEY' | translate"
+            class="text-text-light dark:text-text-dark"
+            >key</mat-icon
+          >
+          <span class="font-mono text-lg">{{ 'HEADER.MENU.PGP_KEY' | translate }}</span>
+
+          @if (currentRoute === '/pgp-key') {
+            <mat-icon class="text-primary">chevron_left</mat-icon>
+          }
+        </a>
+        <div class="h-px w-full bg-gray-200 dark:bg-gray-800"></div>
         <button
           type="button"
           class="flex h-full items-center gap-2 px-4 text-base font-medium text-text-light dark:text-text-dark"

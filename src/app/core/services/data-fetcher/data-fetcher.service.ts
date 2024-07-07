@@ -57,4 +57,12 @@ export class DataFetcherService implements OnDestroy {
     this.discordProxyData.set(data);
     return data;
   }
+
+  public async fetchPgpKey() {
+    const response$ = this.httpClient.get(environment.r2Url + environment.r2PgpKeyPath, {
+      responseType: 'text',
+    });
+
+    return firstValueFrom<string>(response$);
+  }
 }

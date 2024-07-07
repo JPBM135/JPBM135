@@ -21,6 +21,10 @@ export const routes: Routes = [
       (await import('./pages/contact-me/contact-me.component')).ContactMeComponent,
   },
   {
+    path: 'pgp-key',
+    loadComponent: async () => (await import('./pages/pgp-key/pgp-key.component')).PgpKeyComponent,
+  },
+  {
     path: '**',
     loadComponent: async () =>
       (await import('./pages/not-found/not-found.component')).NotFoundComponent,

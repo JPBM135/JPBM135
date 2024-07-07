@@ -8,6 +8,7 @@ import { aboutMePageTranslationManager } from '../../pages/about-me/i18n';
 import { contactMePageTranslationManager } from '../../pages/contact-me/i18n';
 import { homePageTranslationManager } from '../../pages/home/i18n';
 import { notFoundPageTranslationManager } from '../../pages/not-found/i18n';
+import { pgpKeyPageTranslationManager } from '../../pages/pgp-key/i18n';
 import { projectsPageTranslationManager } from '../../pages/projects/i18n';
 import { alertServiceTranslationManager } from '../services/alert/i18n';
 import { errorHandlerTranslationManager } from '../services/error-handler/i18n';
@@ -34,6 +35,7 @@ export class TranslationManagerStore {
     projectsPageTranslationManager,
     aboutMePageTranslationManager,
     contactMePageTranslationManager,
+    pgpKeyPageTranslationManager,
   ];
 
   public static getMergedLanguageMap(): TranslationLanguageMap {

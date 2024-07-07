@@ -1,0 +1,41 @@
+<app-layout>
+  <div class="relative flex h-full w-full justify-center overflow-hidden">
+    <app-background-wave
+      class="absolute left-[50%] top-[30%] -translate-x-1/2 scale-[3] blur-lg"
+    ></app-background-wave>
+    <div
+      class="z-10 flex h-full w-full flex-col items-center justify-center p-4 font-mono text-text-light dark:text-text-dark"
+    >
+      <h1 class="text-center text-6xl font-bold max-md:text-4xl">
+        {{ 'PGP_KEY_PAGE.TITLE' | translate }}
+      </h1>
+      <div
+        class="rounded-lg bg-background-light/60 p-8 text-text-light max-sm:p-4 dark:bg-background-dark/60 dark:text-text-dark"
+      >
+        <div class="flex gap-2 py-5 max-md:flex-col">
+          <button
+            type="button"
+            class="flex w-full items-center justify-center gap-2 rounded-lg bg-background-dark px-4 py-2 text-text-dark dark:bg-background-light dark:text-text-light"
+            (click)="copyToClipboard()"
+          >
+            <mat-icon>content_copy</mat-icon>
+            {{ 'PGP_KEY_PAGE.COPY' | translate }}
+          </button>
+          <a
+            [href]="FILE_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex w-full items-center justify-center gap-2 rounded-lg bg-background-dark px-4 py-2 text-text-dark dark:bg-background-light dark:text-text-light"
+          >
+            <mat-icon>download</mat-icon>
+            {{ 'PGP_KEY_PAGE.OPEN_FILE' | translate }}
+          </a>
+        </div>
+        <pre
+          class="text-start font-mono text-text-light max-lg:text-xs max-md:hidden dark:text-text-dark"
+          >{{ pgpKey() || 'SHARED.LOADING' | translate }}</pre
+        >
+      </div>
+    </div>
+  </div>
+</app-layout>

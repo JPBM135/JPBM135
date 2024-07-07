@@ -5,6 +5,7 @@ export default {
     LANGUAGE_AUTO: 'Idioma adaptado a tu navegador',
     GO_BACK: 'Volver',
     OR: 'o',
+    LOADING: 'Cargando...',
   },
   META: {
     TITLE: 'João Pedro - Desarrollador de Software',
