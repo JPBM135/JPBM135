@@ -6,6 +6,6 @@ export const environment = {
   r2Url: 'https://r2.jpbm.dev',
   r2DataPath: '/meta/data.json',
   r2PgpKeyPath: '/meta/public.pub',
-  apiProxy: 'https://site-api.jpbm135.workers.dev/',
+  apiProxy: 'https://api.jpbm.dev/site/',
   turnstileKey: '0x4AAAAAAAcZkJZuaSCRUnlC',
 };
