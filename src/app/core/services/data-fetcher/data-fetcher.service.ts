@@ -59,7 +59,7 @@ export class DataFetcherService implements OnDestroy {
   }
 
   public async fetchPgpKey() {
-    const response$ = this.httpClient.get(environment.r2Url + environment.r2PgpKeyPath, {
+    const response$ = this.httpClient.get(environment.apiProxy + 'pgp', {
       responseType: 'text',
     });
 

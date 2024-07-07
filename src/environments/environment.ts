@@ -2,7 +2,7 @@ export const environment = {
   environment: 'prod',
   isProduction: true,
   sentryDSN:
-    'https://6602eb66c60d5f1183430cc34a6084a9@o4505281572765696.ingest.us.sentry.io/4507415447142400',
+    'https://72cf6e5131e85377112772516c90c0cd@o4505281572765696.ingest.us.sentry.io/4507415451336704',
   r2Url: 'https://r2.jpbm.dev',
   r2DataPath: '/meta/data.json',
   r2PgpKeyPath: '/meta/public.pub',
